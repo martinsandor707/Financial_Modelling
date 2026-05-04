@@ -4,7 +4,7 @@ library(lubridate)
 # TASK 1: Download the daily returns of two historically correlated 
 #         competing stocks in the same sector (e.g., Coke/Pepsi)
 #         over the last 5 years.
-getSymbols(c("GOOG", "MSFT"), from = Sys.Date() - years(5), to = Sys.Date(), adjust = TRUE)
+getSymbols(c("GOOG", "MSFT"), from = ymd("2026 04 25") - years(5), to = ymd("2026 04 25"), adjust = TRUE)
 
 r_g <- dailyReturn(Ad(GOOG))
 r_m <- dailyReturn(Ad(MSFT))
@@ -49,7 +49,7 @@ plot(rolling_cor_60,
 
 rolling_cov_60 <- runCov(r_g, r_m, n = 60)
 tail(rolling_cov_60)
-plot(rolling_cov_60, 
+# plot(rolling_cov_60, 
      main = "60-Day Rolling Covariance", 
      ylab = "Covariance", 
      col = "blue")

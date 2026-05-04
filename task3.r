@@ -5,7 +5,7 @@ library(lubridate)
 #         Choose an index (e.g., SPY) and calculate  
 #         its daily returns over the last 10 years.
 
-getSymbols(c("^GSPC"), from = Sys.Date() - years(10), to = Sys.Date(), adjust = TRUE)
+getSymbols(c("^GSPC"), from = ymd("2026 05 03") - years(10), to = ymd("2026 05 03"), adjust = TRUE)
 GSPC$daily_returns <- dailyReturn(Ad(GSPC))
 
 # 3a) Calculate the 99% Daily Value at Risk (VaR) using 

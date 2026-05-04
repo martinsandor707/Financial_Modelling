@@ -7,7 +7,7 @@ library(lubridate)
 #         Calculate the rolling 252-day (1-year) beta of your stock.
 
 
-getSymbols(c("NVDA", "^GSPC"), from = Sys.Date() - years(10), to = Sys.Date(), adjust = TRUE)
+getSymbols(c("NVDA", "^GSPC"), from = ymd("2026 04 25") - years(10), to = ymd("2026 04 25"), adjust = TRUE)
 
 returns <- data.frame(Date=index(NVDA), Market=coredata(dailyReturn(Ad(GSPC))), Nvidia=coredata(dailyReturn(Ad(NVDA))))
 colnames(returns) <- c("Date","Market", "Nvidia")
